@@ -1,20 +1,23 @@
 package de.keitocode.springbootraideriolib.service;
 
 import de.keitocode.springbootraideriolib.RaiderioLib;
-import de.keitocode.springbootraideriolib.service.interfaces.CharacterServiceInterface;
+import de.keitocode.springbootraideriolib.model.RaiderioCharacter;
+import de.keitocode.springbootraideriolib.service.interfaces.CharacterService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class RaiderioService implements RaiderioLib {
 
-    @Autowired
-    private CharacterService characterService;
+    public CharacterService Character(RaiderioCharacter character) {
+        CharacterServiceImpl characterService = new CharacterServiceImpl(character);
+        return characterService;
+    }
 
-    public CharacterServiceInterface Character(String name) {
-        return characterService.setCharacter(name);
+    public CharacterService Character(String region, String realm, String name) {
+        CharacterServiceImpl characterService = new CharacterServiceImpl(region, realm, name);
+        return characterService;
     }
 
 }

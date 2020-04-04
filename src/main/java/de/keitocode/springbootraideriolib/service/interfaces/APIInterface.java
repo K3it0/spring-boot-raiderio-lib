@@ -1,5 +1,7 @@
 package de.keitocode.springbootraideriolib.service.interfaces;
 
-public interface APIInterface {
-    public String get();
+import de.keitocode.springbootraideriolib.model.RaiderioCharacter;
+
+interface APIInterface {
+    public RaiderioCharacter get();
 }
